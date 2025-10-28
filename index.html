@@ -16,6 +16,78 @@
             overflow-x: hidden;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #00d4ff;
+            text-decoration: none;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00d4ff;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         .ocean {
@@ -74,8 +146,233 @@
 
         header {
             text-align: center;
-            padding: 60px 20px 40px;
+            padding: 120px 20px 40px;
             animation: fadeInDown 1s ease-out;
+        }
+
+        section {
+            padding: 80px 20px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        section h2 {
+            font-size: 3rem;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 50px;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            color: #e0f7ff;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.3), rgba(0, 150, 255, 0.5));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 48px rgba(0, 200, 255, 0.5);
+        }
+
+        .product-bottle {
+            width: 120px;
+            height: 180px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(0, 200, 255, 0.3));
+            border-radius: 30px 30px 15px 15px;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .product-bottle::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 35px;
+            height: 20px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(0, 200, 255, 0.3));
+            border-radius: 5px 5px 0 0;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-bottom: none;
+        }
+
+        .product-card h3 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .product-card .price {
+            color: #00d4ff;
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .product-card p {
+            color: #e0f7ff;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .product-card ul {
+            text-align: left;
+            color: #e0f7ff;
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .product-card li {
+            margin: 10px 0;
+        }
+
+        .buy-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #00d4ff, #0099ff);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .buy-button:hover {
+            transform: scale(1.1);
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .testimonial-card p {
+            color: #e0f7ff;
+            font-style: italic;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-rating {
+            color: #ffd700;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-info {
+            color: #e0f7ff;
+            font-size: 1.1rem;
+            line-height: 2;
+            margin-bottom: 30px;
+        }
+
+        .contact-info a {
+            color: #00d4ff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #00ffff;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 30px 20px;
+            text-align: center;
+            color: #e0f7ff;
+            margin-top: 80px;
         }
 
         h1 {
@@ -293,10 +590,37 @@
             .tagline {
                 font-size: 1.2rem;
             }
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+            section h2 {
+                font-size: 2rem;
+            }
+            .about-content {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">PureWave</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
     <div class="ocean">
         <div class="wave"></div>
         <div class="wave"></div>
@@ -316,7 +640,7 @@
     </div>
 
     <div class="container">
-        <header>
+        <header id="home">
             <h1>PureWave</h1>
             <p class="tagline">Experience the Pure Essence of Nature</p>
         </header>
@@ -326,7 +650,81 @@
             <h2 style="color: white; font-size: 2rem; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">Premium Bottled Water</h2>
         </div>
 
-        <div class="features">
+        <section id="about">
+            <h2>About PureWave</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Founded in 2010, PureWave has been committed to bringing you the finest quality bottled water from pristine mountain springs.
+                        Our journey began with a simple mission: to provide pure, refreshing hydration that nature intended.
+                    </p>
+                    <p>
+                        Every drop of PureWave water travels through ancient geological formations, naturally filtering and enriching it with essential minerals.
+                        We bottle our water at the source to preserve its natural purity and freshness, ensuring that every sip delivers the crisp,
+                        clean taste that has made us a trusted name in premium bottled water.
+                    </p>
+                    <p>
+                        Our commitment extends beyond quality. We're dedicated to sustainability, using 100% recyclable bottles and implementing
+                        eco-friendly practices throughout our production process. When you choose PureWave, you're not just choosing great taste—you're
+                        choosing a better future for our planet.
+                    </p>
+                </div>
+                <div class="about-image">
+                    🏔️
+                </div>
+            </div>
+        </section>
+
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-bottle"></div>
+                    <h3>PureWave Classic</h3>
+                    <p class="price">$2.99</p>
+                    <p>Our signature natural spring water, perfect for everyday hydration.</p>
+                    <ul>
+                        <li>500ml bottle</li>
+                        <li>Natural pH 7.4</li>
+                        <li>Rich in minerals</li>
+                        <li>BPA-free bottle</li>
+                    </ul>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-bottle"></div>
+                    <h3>PureWave Alkaline</h3>
+                    <p class="price">$3.49</p>
+                    <p>Enhanced with electrolytes and elevated pH for optimal wellness.</p>
+                    <ul>
+                        <li>500ml bottle</li>
+                        <li>pH 9.5+</li>
+                        <li>Added electrolytes</li>
+                        <li>Energy boosting</li>
+                    </ul>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-bottle"></div>
+                    <h3>PureWave Sparkling</h3>
+                    <p class="price">$3.99</p>
+                    <p>Naturally carbonated for a refreshing, bubbly experience.</p>
+                    <ul>
+                        <li>500ml bottle</li>
+                        <li>Natural carbonation</li>
+                        <li>Zero calories</li>
+                        <li>Crisp & refreshing</li>
+                    </ul>
+                    <a href="#" class="buy-button">Buy Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <h2>Why Choose PureWave</h2>
+            <div class="features">
             <div class="feature-card">
                 <div class="feature-icon">💧</div>
                 <h3>100% Natural</h3>
@@ -363,10 +761,86 @@
                 <p>Balanced pH levels for optimal taste and maximum health benefits.</p>
             </div>
         </div>
+        </section>
+
+        <section id="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <p>"PureWave has completely changed my hydration routine. The taste is incredibly crisp and refreshing. I can't imagine going back to regular bottled water!"</p>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p>"As an athlete, proper hydration is crucial. PureWave Alkaline gives me the energy boost I need during intense workouts. Highly recommend!"</p>
+                    <div class="testimonial-author">Michael Chen</div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p>"I love that PureWave is committed to sustainability. The water tastes amazing, and I feel good knowing I'm supporting an eco-conscious company."</p>
+                    <div class="testimonial-author">Emily Rodriguez</div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p>"The sparkling version is my favorite! It's perfect for when I want something refreshing without any added sugars or calories. Absolutely delicious!"</p>
+                    <div class="testimonial-author">David Kim</div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p>"PureWave Classic is now a staple in our household. The whole family loves it, and I appreciate the natural mineral content for our health."</p>
+                    <div class="testimonial-author">Jennifer Martinez</div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <div class="testimonial-card">
+                    <p>"The quality and taste are unmatched. PureWave truly delivers on its promise of pure, natural hydration. Worth every penny!"</p>
+                    <div class="testimonial-author">Robert Thompson</div>
+                    <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p><strong>📍 Address:</strong><br>
+                    123 Mountain Spring Road<br>
+                    Crystal Falls, CO 80123</p>
+
+                    <p><strong>📞 Phone:</strong><br>
+                    <a href="tel:1-800-PUREWAVE">1-800-PUREWAVE (787-3928)</a></p>
+
+                    <p><strong>✉️ Email:</strong><br>
+                    <a href="mailto:info@purewave.com">info@purewave.com</a></p>
+
+                    <p><strong>🕐 Hours:</strong><br>
+                    Monday - Friday: 8:00 AM - 6:00 PM<br>
+                    Saturday: 9:00 AM - 4:00 PM<br>
+                    Sunday: Closed</p>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" title="Facebook">📘</a>
+                    <a href="#" title="Twitter">🐦</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="LinkedIn">💼</a>
+                </div>
+            </div>
+        </section>
 
         <div class="cta">
-            <a href="#" class="cta-button">Order Your PureWave Today</a>
+            <a href="#products" class="cta-button">Order Your PureWave Today</a>
         </div>
     </div>
+
+    <footer>
+        <p>&copy; 2024 PureWave Premium Bottled Water. All rights reserved.</p>
+        <p>Committed to purity, sustainability, and your well-being.</p>
+    </footer>
 </body>
 </html>
